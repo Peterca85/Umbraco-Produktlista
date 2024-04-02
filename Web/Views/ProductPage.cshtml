@@ -1,0 +1,36 @@
+﻿@using Umbraco.Cms.Core.Models
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ProductPage>
+@using ContentModels = Web.Models;
+@{
+	Layout = null;
+	var hasImage = Model.ProductImage != null;
+}
+
+<style>
+	.product-heading {
+		color: saddlebrown;
+		text-align:center;
+	}
+</style>
+
+<h1 class="product-heading">@Model.Heading</h1>
+
+@if (hasImage)
+{
+	<img src="@Model.ProductImage.GetCropUrl(imageCropMode:ImageCropMode.Crop ,width:600, height:600,furtherOptions:"bgcolor=fff")" />
+}
+
+
+
+<h2> @Model.ProduktTextOne</h2>
+
+<p>@Model.ProduktBeskrivning </p>
+
+<h4>Id</h4>
+<p>@Model.SkuId</p>
+
+<h4>Pris</h4>
+<p>@Model.Pris</p>
+
+<a href="@Model.Ancestor().Url()">Tillbaka </a>

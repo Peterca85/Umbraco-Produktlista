@@ -1,0 +1,13 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Web.Models.HomePage>
+@{
+	Layout = null;
+	var subPages = Model.Children();
+}
+
+<h1>@Model.Heading</h1>
+
+@foreach(var subPage in subPages){
+	<a href="@subPage.Url()">@subPage.Name</a>
+
+}

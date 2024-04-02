@@ -1,0 +1,19 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ProductList>
+@using ContentModels = Web.Models;
+@{
+	Layout = null;
+	var products = Model.Children <ContentModels.ProductPage >();
+}
+
+@foreach (var product in products)
+{
+
+
+	<a href="@product.Url()">
+		<h2>@product.Heading</h2>
+	</a>
+}
+
+
+<a href="@Model.Ancestor().Url()">Tillbaka </a>
